@@ -21,12 +21,12 @@ public class Aplikasi {
     private List<Rute> daftarRute = new ArrayList();
     private int nRute = 1;
 
-    public void addKereta(Kereta kereta) {
-    
+     public void addKereta(Kereta kereta) {
+        this.daftarKereta.add(kereta);
     }
 
     public void addTiket(Tiket tiket) {
-    
+        this.daftarTiket.add(tiket);
     }
 
     public void addGerbong(Gerbong gerbong) {
@@ -42,14 +42,23 @@ public class Aplikasi {
         nRute++;
     }
 
-    public Kereta getKereta(String nama) {
-    
+      public Kereta getKereta(String nama) {
+        for (Kereta k : daftarKereta) {
+            if (k.getNama().equals(nama)) {
+                return k;
+            }
+        }
+        return null;
     }
 
     public Tiket getTiket(String kode_tiket) {
-    
+        for (Tiket t : daftarTiket) {
+            if (t.getKode_Tiket().equals(kode_tiket)) {
+                return t;
+            }
+        }
+        return null;
     }
-
     public Gerbong getGerbong(String kode) {
         for (Gerbong g : daftarGerbong) {
             if (g.getKode().equals(kode)) {
@@ -86,7 +95,8 @@ public class Aplikasi {
     }
     
     public void deleteKereta(String nama) {
-    
+        Kereta k = getKereta(nama);
+        daftarKereta.remove(k);
     }
 
     public void deleteTiket(String kode_tiket) {

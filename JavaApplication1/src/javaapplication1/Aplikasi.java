@@ -22,7 +22,7 @@ public class Aplikasi {
     private int nRute = 1;
 
     public void addKereta(Kereta kereta) {
-    
+        this.daftarKereta.add(kereta);
     }
 
     public void addTiket(Tiket tiket) {
@@ -110,7 +110,8 @@ public class Aplikasi {
     }
 
     public void menuSatu(String kode, String jenis, int jumlah) {
-    
+        Gerbong g = new Gerbong(kode, jenis, jumlah);
+        addGerbong(g);
     }
 
     public void menuDua(String nama, String jurusan, String jenis) {
@@ -232,7 +233,10 @@ public class Aplikasi {
                     break;
 
                 case 8:
-                    
+                    System.out.println("Masukkan Nama Kereta : ");
+                    nama = sString.nextLine();
+                    Kereta k = getKereta(nama);
+                    System.out.println(k.toString());
                     break;
 
                 case 9:
@@ -252,7 +256,10 @@ public class Aplikasi {
                     break;
 
                 case 11:
-                    
+                    System.out.print("Masukkan Kode Gerbong yang akan dihapus : ");
+                    kode = sString.nextLine();
+                    deleteGerbong(kode);
+                    System.out.println("Data Gerbong telah dihapus");
                     break;
 
                 case 12:

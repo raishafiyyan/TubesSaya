@@ -11,36 +11,53 @@ package javaapplication1;
  */
 public class Gerbong {
     private String kode;
-	private String jenis;
-	private int jumlah;
-	
-	public Gerbong(String kode){
-		setkode(kode);
+    private String jenis;
+    private int jumlah;
+    
+    public Gerbong(String kode) {
+        this.kode = kode;
+    }
+
+    public Gerbong(String kode,String jenis,int jumlah) {
+	this.kode = kode;
+	this.jenis = jenis;
+	this.jumlah = jumlah;
+    }
+
+    public void setKode(String kode) {
+	this.kode = kode;
+    }
+
+    public String getKode() {
+	return kode;
+    }
+
+    public String getJenis(String jenis) {
+	if (jenis.equals("Eks")) {
+            return ("Eksekutif");
+	} 
+	else if (jenis.equals("Bis")) {
+            return ("Bisnis"); 
+	} 
+	else if (jenis.equals("Eko")) {
+            return ("Ekonomi");
 	}
-	public void setkode(String kode){
-		this.kode = kode;
+	else
+	{
+            return ("Jenis Gerbong yang Anda masukan salah");
 	}
-	public String getkode(){
-		return kode;
-	}
-	public void setjenis(String jenis){
-		if (jenis.equals("Eks")){
-			System.out.println("Eksekutif");
-		}
-		else if (jenis.equals("Bis")){
-			System.out.println("Bisnis");
-		}
-		else if (jenis.equals("Eko")){
-			System.out.println("Ekonomi");
-		}
-	}
-	public String getjenis(){
-		return jenis;
-	}
-	public void setjumlah(){
-		this.jumlah = jumlah;
-	}
-	public int getjumlah(){
-		return jumlah;
-	}
+    }
+
+    public void setJumlah(int jumlah) {
+	this.jumlah = jumlah;
+    }
+
+    public int getJumlah() {
+    	return jumlah;
+    }
+    
+    @Override
+    public String toString() {
+        return "Info Gerbong : " + "\n Kode Gerbong = " + kode + "\n Jenis Gerbong = " + getJenis(jenis) + "\n Jumlah Gerbong = " + jumlah;
+    }
 }

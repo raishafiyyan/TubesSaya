@@ -1,0 +1,101 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package model;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+/**
+ *
+ * @author HANIZAR
+ */
+public class Tiket implements Serializable {
+    private String kode_tiket;
+    private String jenis;
+    private String tanggal;
+    private long harga;
+    private String nama_kereta;
+    private Rute rute;
+
+    public Tiket(String kode_tiket) {
+        this.kode_tiket = kode_tiket;
+    }
+    
+    public Tiket(String kode_tiket, String jenis, String tanggal, long harga, String nama_kereta,Rute rute) {
+	this.kode_tiket = kode_tiket;
+	this.jenis = jenis;
+	this.tanggal = tanggal;
+	this.harga = harga;
+	this.nama_kereta = nama_kereta;
+        this.rute = rute;
+    }
+
+    public void setKode_Tiket(String kode_tiket) {
+    	this.kode_tiket = kode_tiket;
+    }
+
+    public String getKode_Tiket() {
+	return kode_tiket;
+    }
+
+    public void setNama_Kereta(String nama_kereta) {
+	this.nama_kereta = nama_kereta;
+    }
+
+    public String getNama_Kereta() {
+	return nama_kereta;
+    }
+
+    public void setHarga(long harga) {
+	this.harga = harga;
+    }
+
+    public long getHarga() {
+	return harga;
+    }
+
+    public String getJenis() {
+	return jenis;
+    }
+
+    public void setJenis(String jenis) {
+    	switch(jenis) {
+            case "1" : 
+                jenis = "Eksekutif";
+                break;
+            case "2" :
+                jenis = "Bisnis";
+                break;
+            case "3" :
+                jenis = "Ekonomi";
+                break;
+            default:
+                jenis = "Jenis Gerbong yang Anda masukkan salah";
+        }
+    }
+
+    public void setTanggal(String tanggal) {
+	this.tanggal = tanggal;
+    }
+
+    public String getTanggal() {
+    	return tanggal;
+    }
+
+    public void addRute(Rute rute) {
+	this.rute = rute;
+    }
+
+    public Rute getRute() {
+    	return rute;
+    }
+    
+    @Override
+    public String toString() {
+        String st = "Info Tiket : " + "\n Kode Tiket : " + kode_tiket + "\n Jenis Tiket : " + jenis + "\n Tanggal Tiket : " + tanggal + "\n Harga Tiket : " + harga + "\n Nama Kereta : " + nama_kereta + "\n Rute : " + rute;
+        return st;
+    }
+}

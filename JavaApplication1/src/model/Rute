@@ -1,0 +1,62 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package model;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+/**
+ *
+ * @author HANIZAR
+ */
+public class Rute implements Serializable {
+    private Stasiun stasiun1;
+    private Stasiun stasiun2;
+    private List<Kereta> listKereta = new ArrayList();
+    
+    public Rute(Stasiun stasiun1) {
+        this.stasiun1 = stasiun1;
+    }
+    
+    public Rute(Stasiun stasiun1, Stasiun stasiun2) {
+        this.stasiun1 = stasiun1;
+        this.stasiun2 = stasiun2;
+    }
+    
+    public void setStasiun1(Stasiun stasiun) {
+	this.stasiun1 = stasiun;
+    }
+
+    public Stasiun getStasiun1() {
+	return stasiun1;
+    }
+
+    public void setStasiun2(Stasiun stasiun) {
+	this.stasiun2 = stasiun;
+    }
+
+    public Stasiun getStasiun2() {
+    	return stasiun2;
+    }
+
+    public void addKereta(Kereta kereta) {
+	if(listKereta.size() < 15) {
+            listKereta.add(kereta);
+        }
+        else {
+            throw new IllegalStateException("Maximum Kereta 15");
+        }
+    }
+
+    @Override
+    public String toString() {
+        String st = "Info Rute : " + "\n Stasiun Keberangkatan : " + stasiun1 + "\n Stasiun Tujuan : " + stasiun2;
+        for (Kereta k : listKereta) {
+            st += k.toString() + "\n";
+        }
+        return st;
+    }
+}
